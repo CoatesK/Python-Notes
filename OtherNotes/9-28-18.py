@@ -30,10 +30,15 @@ def countdownWhile(n):
 
 def printNumber():
     while True:
-        n = input("Enter a number: ")
+        w = input("Enter a word: ")
+        u = input("Enter undesirable letters: ")
+        
+
+        '''
         if (n == "done"):
             break
         else:
             print(n)
+        '''
 
 def factorialWhile(i, n):

@@ -44,7 +44,5 @@ c = is_abecedarian("abcdea")
 print(c)
 '''
 
-'''
 for line in fin:
     print(line.strip()[::-1])
-'''
