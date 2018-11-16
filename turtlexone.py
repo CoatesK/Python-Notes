@@ -3,7 +3,7 @@ pb = turtle.Turtle()
 print(pb)
 import math
 pb.color("green")
-pb.pencolor("black")
+pb.pencolor("blue")
 pb.shape("turtle")
 
 def polygon(t, n, length):
@@ -84,7 +84,60 @@ def manyHouses(turtle, length, number):
         turtle.fd(length)
         turtle.pendown
 
+def arc(t, r):
+    """
+    Description: A basic way to calculate and draw an arc
+    Attributes:
+    t - turtle used to draw the arc
+    r - radius of the circle the arc comes from
+    Returns: an arc turtle object
+    """
+    arc_length = 2 * math.pi * r * 180 / 360
+    n = int(arc_length / 3) + 1
+    step_length = arc_length / n
+    step_angle = 180 / n
+    for i in range(n):
+        t.fd(step_length)
+        t.lt(step_angle)
 
+class Petal():
+    """
+    Description: Represents a petal, any type
+    Attributes:
+    self.color = a string used to tell what color a petal is
+    Returns:
+    """
+    def __init__(self, color):
+        self.color = color
+
+    def __str__(self):
+        return 'This petal is %s' % (self.color)
+
+
+class Teardrop(Petal):
+    """
+    Description: a type of PETAL in the teardrop shape
+    Attributes:
+    self.radius- a float showing the radius of the petal
+    Returns - a turtle drawing of the teardrop flower petal type
+    """
+    def __init__(self, radius, t):
+        self.radius = radius
+
+    def __str__(self):
+        return 'This petal has a %s pixel radius' % (self.radius)
+
+    def draw(t):
+        t.rt(60)
+        t.fd(self.radius)
+        t.lt(30)
+        arc(t,(self.radius /2))
+        t.lt(30)
+        t.fd(self.radius)
+        t.lt(150)
+
+fate = Teardrop(100, pb)
+fate.draw()
 
 
 turtle.mainloop()
